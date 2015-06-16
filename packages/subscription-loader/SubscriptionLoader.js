@@ -8,20 +8,24 @@ SubscriptionLoader = function SubscriptionLoaderConstructor(instance, config) {
   config = config || {};
 
   if (!config.route || !_.isFunction(config.route)) {
-    config.route = function () {
-      FlowRouter.watchPathChange();
-      var current = FlowRouter.current();
-      return {
-        name: current && current.route && current.route.name,
-        params: current && current.params
+    if (Package['meteorhacks:flow-router']) {
+      config.route = function () {
+        FlowRouter.watchPathChange();
+        var current = FlowRouter.current();
+        return {
+          name: current && current.route && current.route.name,
+          params: current && current.params
+        };
       };
-    };
+    }
   }
+
+  if (!config.route) throw new Error("Can't use SubscriptionLoader without defining a 'route' method to retrieve route name and params.");
 
   instance.autorun(function () {
     var route = config.route();
 
-    if (!config.routes || !config.routes[route.name]) return;
+    if (!config.routes || !config.routes[route.name]) return console.warn("Encountered an unhandled route:", route.name);
 
     readyCounts[route.name] = 0;
     readyTotals[route.name] = 0;

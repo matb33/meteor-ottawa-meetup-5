@@ -6,9 +6,12 @@ Package.describe({
 Package.onUse(function (api) {
   api.use([
     'reactive-var',
-    'underscore',
-    'meteorhacks:flow-router'
+    'underscore'
   ]);
+
+  api.use([
+    'meteorhacks:flow-router'
+  ], { weak: true });
 
   api.addFiles([
     'SubscriptionLoader.js'
