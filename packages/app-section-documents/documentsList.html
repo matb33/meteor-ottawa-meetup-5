@@ -1,0 +1,28 @@
+<template name="documentsList">
+  <div class="fade">
+    {{#with documents}}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th width="1">Title</th>
+            <th>Body</th>
+            <th width="1">Owner</th>
+            <th width="1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each this}}
+            <tr>
+              <td nowrap>{{title}}</td>
+              <td><pre>{{{body}}}</pre></td>
+              <td><a href="/documents/by-client/{{client._id}}">{{client.company}}</a></td>
+              <td><a href="/documents/edit/{{_id}}" class="btn btn-xs btn-primary">edit</a></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <em>No documents to display.</em>
+    {{/with}}
+  </div>
+</template>

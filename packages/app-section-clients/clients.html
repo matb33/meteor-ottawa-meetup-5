@@ -1,0 +1,8 @@
+<template name="clients">
+  <h1>Clients <button name="new" class="btn btn-xs btn-primary">new</button></h1>
+  {{#if loaded}}
+    {{> clientsList}}
+  {{else}}
+    <div class="top-quarter-centered-fixed">{{> spinner}}</div>
+  {{/if}}
+</template>

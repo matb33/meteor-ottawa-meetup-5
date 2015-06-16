@@ -1,0 +1,10 @@
+<template name="editDocument">
+  {{#if loaded}}
+    {{#with document}}
+      <h1>Edit Document <small>{{title}}</small></h1>
+    {{/with}}
+  {{else}}
+    <div class="top-quarter-centered-fixed">{{> spinner}}</div>
+  {{/if}}
+  <p>TODO (consider meteor-autoform)</p>
+</template>

@@ -1,0 +1,8 @@
+<template name="documents">
+  <h1>Documents{{#with client}} <small>{{company}}</small>{{/with}} <button name="new" class="btn btn-xs btn-primary">new</button></h1>
+  {{#if loaded}}
+    {{> documentsList}}
+  {{else}}
+    <div class="top-quarter-centered-fixed">{{> spinner}}</div>
+  {{/if}}
+</template>

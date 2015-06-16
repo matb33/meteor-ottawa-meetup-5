@@ -1,0 +1,32 @@
+<template name="clientsList">
+  <div class="fade">
+    {{#with clients}}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Phone #</th>
+            <th>Email</th>
+            <th width="1" class="nowrap"># docs</th>
+            <th width="1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each this}}
+            <tr>
+              <td>{{company}}</td>
+              <td>{{contact}}</td>
+              <td>{{phone}}</td>
+              <td>{{email}}</td>
+              <td class="nowrap">{{_documentsCount}}&nbsp;<a href="/documents/by-client/{{_id}}" name="view-docs" class="btn btn-xs btn-default">view</a></td>
+              <td><a href="/clients/edit/{{_id}}" class="btn btn-xs btn-primary">edit</a></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <em>No clients to display.</em>
+    {{/with}}
+  </div>
+</template>
