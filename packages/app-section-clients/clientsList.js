@@ -1,6 +1,6 @@
 Template.clientsList.helpers({
   clients: function () {
-    return Clients.find();
+    return Clients.find({}, { sort: { company: 1, createdAt: 1 }});
   }
 });
 

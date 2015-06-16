@@ -1,7 +1,7 @@
 Template.bind(Template.navigation, "nav");
 
 Template.navigation.helpers({
-  items: function () {
+  sections: function () {
     return NavManager.get();
   }
 });

@@ -1,6 +1,6 @@
 Template.documentsList.helpers({
   documents: function () {
-    return Documents.find();
+    return Documents.find({}, { sort: { createdAt: 1, clientId: 1 } });
   }
 });
 
