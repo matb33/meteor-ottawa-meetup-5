@@ -1,9 +1,9 @@
 <template name="template">
-	{{#if region}}
-		{{#with context}}
-			{{#each names}}
-				{{> Template.dynamic template=name data=..}}
-			{{/each}}
-		{{/with}}
-	{{/if}}
+  {{#if region}}
+    {{#with context}}
+      {{#each names}}
+        {{> Template.dynamic template=name data=..}}
+      {{/each}}
+    {{/with}}
+  {{/if}}
 </template>
