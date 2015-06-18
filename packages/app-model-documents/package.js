@@ -7,7 +7,8 @@ Package.onUse(function (api) {
   api.use([
     'mongo',
     'tracker',
-    'app-model-clients'
+    'app-model-clients',
+    'matb33:collection-hooks'
   ]);
 
   api.addFiles([

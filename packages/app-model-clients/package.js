@@ -5,7 +5,8 @@ Package.describe({
 
 Package.onUse(function (api) {
   api.use([
-    'mongo'
+    'mongo',
+    'matb33:collection-hooks'
   ]);
 
   api.addFiles([

@@ -1,13 +1,26 @@
 function updateCountOnClient(nil, doc) {
-  var count = Documents.find({ clientId: doc.clientId }).count();
-  Clients.update({ _id: doc.clientId }, { $set: { _documentsCount: count } });
+  var count = Documents.find({
+  	clientId: doc.clientId
+  }).count();
+
+  Clients.update({
+  	_id: doc.clientId
+  }, {
+  	$set: { _documentsCount: count }
+  });
 }
 
 Documents.after.insert(updateCountOnClient);
 Documents.after.remove(updateCountOnClient);
 
 Clients.after.update(function (userId, doc, fieldNames, modifier, options) {
-  Documents.update({ clientId: doc._id }, { $set: { client: doc } }, { multi: true });
+  Documents.update({
+  	clientId: doc._id
+  }, {
+  	$set: { _client: doc }
+  }, {
+  	multi: true
+  });
 });
 
 Clients.after.remove(function (nil, doc) {

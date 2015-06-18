@@ -11,6 +11,7 @@ Package.onUse(function (api) {
     'reactive-var',
     'subscription-loader',
     'meteorhacks:flow-router',
+    'sacha:spin',
     'app-model-documents',
     'app-model-clients'
   ]);

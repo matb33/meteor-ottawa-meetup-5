@@ -5,6 +5,24 @@ Package.describe({
 
 Package.onUse(function (api) {
   api.use([
+    'meteor-platform',
+    'app-bootstrap',
+    'app-navigation',
+    'app-section-home',
+    'app-section-documents',
+    'app-section-clients'
+  ]);
+
+  // Expose these to the global namespace
+  api.imply([
+    'meteor-platform',
+    'app-model-clients',
+    'app-model-documents',
+    'subscription-loader',
+    'meteorhacks:flow-router'
+  ]);
+
+  api.use([
     'templating',
     'less',
     'template-regions'
